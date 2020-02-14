@@ -27,6 +27,7 @@ function Header(props) {
       <div style={headerStyle}>
         <h1 style={heroTextStyle}>Beers-n-Stuff</h1>
       </div>
+      <Nav/>
       <h2 style={pageTitleStyle}>{props.title}</h2>
     </div>
   )
