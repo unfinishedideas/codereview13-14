@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 
 function Nav() {
   const navStyle = {
-    position: 'relative',
-    top: '45px',
-    right: '218px'
+    // position: 'relative',
+    // top: '55px',
+    // right: '290px'
+    padding: '0px 45px',
   }
   const linkStyle = {
     paddingRight: '12px',

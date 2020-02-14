@@ -4,6 +4,9 @@ function NewBeerForm() {
   const submitBtnStyle = {
     marginTop: '20px',
     height: '50px',
+    backgroundColor: '#ac3232',
+    color: 'white',
+    border: 'none'
   }
   const newBeerFormStyles = {
     border:' rgb(10,10,10) solid 2px',
@@ -16,7 +19,7 @@ function NewBeerForm() {
   }
   return(
     <div>
-      <form style={newBeerFormStyles} action="index.html" method="post">
+      <form style={newBeerFormStyles} action="./#/beers" method="none">
 
         <div>
           <label for="name">Name</label>

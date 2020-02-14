@@ -10,10 +10,6 @@ function Beer(props) {
     display: 'flex',
     width: '75%',
     margin: '20px auto',
-    // margin: '20px 0px',
-    // width: '80%',
-
-    // width: '648px',
     height: '150px'
   }
   const beerNameStyle = {

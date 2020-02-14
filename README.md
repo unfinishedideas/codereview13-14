@@ -1,3 +1,6 @@
+# Beers-n-stuff (CodeReview13)
+## A REACT app which depicts a taproom website
+
 ![alt text](/src/assets/img/beersnstuffdesign.png "Component layout")
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

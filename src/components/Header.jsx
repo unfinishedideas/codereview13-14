@@ -5,15 +5,16 @@ import Nav from './Nav';
 function Header(props) {
   const headerStyle = {
     height: '200px',
-    display: 'flex',
-    alignItems: 'center',
+    // display: 'flex',
+    // alignItems: 'center',
     backgroundColor: '#ac3232',
     color: 'white'
   }
   const heroTextStyle = {
     margin: '0px 40px',
     padding: '20px 0px',
-    textShadow: '2px 2px black'
+    textShadow: '2px 2px black',
+    fontSize: '50px'
   }
   const pageTitleStyle = {
     textAlign: 'center',
