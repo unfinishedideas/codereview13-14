@@ -9,8 +9,8 @@ function Homepage() {
     <div>
       <Header title="Home"/>
       <p style={fluffTextStyle}>Here at Beers-n-Stuff we provide only the finest beers, and stuff!</p>
-      <p style={fluffTextStyle}>Use the navigation above to navigate around the site</p>
-      <p style={fluffTextStyle}><em>Most importantly we do not condone the misuse of alcohol</em></p>
+      <p style={fluffTextStyle}>Use the navigation above to poke around the site</p>
+      <p style={fluffTextStyle}><em>We do not condone the misuse of alcohol. Drink responsibly</em></p>
     </div>
   )
 }

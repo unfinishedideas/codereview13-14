@@ -4,11 +4,11 @@ import bottle from '../assets/img/bottle.png'
 
 function Beer(props) {
   const beerBoxStyle = {
-    border: 'white solid 2px',
+    // border: 'white solid 2px',
     padding: '50px',
     display: 'flex',
     margin: '20px 72px',
-    width: '450px',
+    width: '550px',
     height: '150px'
   }
   const littleText = {
@@ -32,7 +32,7 @@ function Beer(props) {
   }
   return(
     <div style={beerBoxStyle}>
-      <img style={bottleStyle} src={bottle}/>
+      <img style={bottleStyle} src={bottle} alt="bottle graphic"/>
       <div style={infoBoxStyle}>
         <h3 style={beerNameStyle}>{props.name}</h3>
         <h4>{props.brand}</h4>
