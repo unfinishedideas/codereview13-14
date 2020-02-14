@@ -1,18 +1,33 @@
 import React from 'react';
 import PropTypes from "prop-types";
+import Nav from './Nav';
 
 function Header(props) {
   const headerStyle = {
-    height: '500px',
+    height: '200px',
     display: 'flex',
     alignItems: 'center',
-    margin: '0 72px'
+    backgroundColor: 'black',
+    color: 'white'
   }
+  const background = {
+    backgroundColor: 'black',
+    color: 'white'
+  }
+  const heroTextStyle = {
+    margin: '0px 40px',
+    padding: '20px 0px'
+  }
+  const pageTitleStyle = {
+    textAlign: 'center',
+  }
+
   return (
     <div>
       <div style={headerStyle}>
-        <h1>{props.title}</h1>
+        <h1 style={heroTextStyle}>Beers-n-Stuff</h1>
       </div>
+      <h2 style={pageTitleStyle}>{props.title}</h2>
     </div>
   )
 }
