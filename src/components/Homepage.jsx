@@ -7,7 +7,7 @@ function Homepage() {
   }
   return (
     <div>
-      <Header title="Home"/>
+      <Header title="About Us"/>
       <p style={fluffTextStyle}>Here at Beers-n-Stuff we provide only the finest beers, and stuff!</p>
       <p style={fluffTextStyle}>Use the navigation above to poke around the site</p>
       <p style={fluffTextStyle}><em>We do not condone the misuse of alcohol. Drink responsibly</em></p>

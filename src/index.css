@@ -22,23 +22,18 @@ h4 {
 input {
 padding: 5px;
 margin: 10px;
-width: 200px;
+width: 40%;
+/* width: 200px; */
 }
 
 textarea {
 padding: 5px;
 margin: 10px;
-width: 450px;
+width: 120%;
+/* width: 450px; */
 height: 100px;
 }
 
 label {
   margin: 10px;
-}
-
-form {
-  padding: 40px;
-  width: 1000px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
 }

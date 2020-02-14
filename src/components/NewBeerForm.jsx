@@ -5,9 +5,18 @@ function NewBeerForm() {
     marginTop: '20px',
     height: '50px',
   }
+  const newBeerFormStyles = {
+    border:' rgb(10,10,10) solid 2px',
+    backgroundColor: 'rgb(50,50,50)',
+    padding: '40px',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    width: '75%',
+    margin: '0 auto'
+  }
   return(
     <div>
-      <form action="index.html" method="post">
+      <form style={newBeerFormStyles} action="index.html" method="post">
 
         <div>
           <label for="name">Name</label>

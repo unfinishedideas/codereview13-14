@@ -3,10 +3,15 @@ import NewBeerForm from './NewBeerForm';
 import Header from './Header';
 
 function NewBeerControl() {
+  const newBeerFormStyle = {
+    margin: '0 20%'
+  }
   return(
     <div>
       <Header title='New Beer'/>
-      <NewBeerForm/>
+      <div style={newBeerFormStyle}>
+        <NewBeerForm/>
+      </div>
     </div>
   )
 

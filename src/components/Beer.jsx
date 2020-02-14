@@ -4,21 +4,26 @@ import bottle from '../assets/img/bottle.png'
 
 function Beer(props) {
   const beerBoxStyle = {
-    // border: 'white solid 2px',
-    padding: '50px',
+    border: 'rgb(10,10,10) solid 2px',
+    backgroundColor: 'rgb(50,50,50)',
+    padding: '48px',
     display: 'flex',
-    margin: '20px 72px',
-    width: '550px',
+    width: '75%',
+    margin: '20px auto',
+    // margin: '20px 0px',
+    // width: '80%',
+
+    // width: '648px',
     height: '150px'
-  }
-  const littleText = {
-    margin: '0',
-    color: '#68b46f'
   }
   const beerNameStyle = {
     margin: '0',
     fontSize: '30px',
-    width: '150px'
+    width: '160px'
+  }
+  const littleText = {
+    margin: '0',
+    color: '#68b46f'
   }
   const infoBoxStyle = {
     paddingRight: '25px'
