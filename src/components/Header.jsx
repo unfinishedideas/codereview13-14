@@ -17,6 +17,8 @@ function Header(props) {
   }
   const pageTitleStyle = {
     textAlign: 'center',
+    fontSize: '32px',
+    marginBottom: '60px',
   }
 
   return (

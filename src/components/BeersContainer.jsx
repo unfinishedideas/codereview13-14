@@ -20,7 +20,7 @@ const beers = [
   }
 ];
 
-function BeerContainer(props) {
+function BeersContainer(props) {
   return(
     <div>
       <Header title="The Beers"/>
@@ -42,4 +42,4 @@ Beer.propTypes = {
   type: PropTypes.string.isRequired,
 };
 
-export default BeerContainer;
+export default BeersContainer;
