@@ -6,9 +6,9 @@ function Beer(props) {
     <div>
       <h3>{props.name}</h3>
       <h4>{props.brand}</h4>
-      <p>{props.price}</p>
-      <p>{props.alcoholContent}</p>
-      <p>{props.type}</p>
+      <p>Price: <em>{props.price}</em></p>
+      <p>Alcohol Content: <em>{props.alcoholContent}</em></p>
+      <p>Type: <em>{props.type}</em></p>
     </div>
   )
 };
