@@ -3,6 +3,41 @@
 
 ![alt text](/src/assets/img/beersnstuffdesign.png "Component layout")
 
+## About
+A react based webpage which displays a continually updated list of beers for a fictional Taproom called 'Beers-n-Stuff'. Written as a codereview for Epicodus this app utilzes React and State to create a responsive page.
+
+## Installation
+* Clone git repository at https://github.com/unfinishedideas/codereview13.git
+* run `npm install`
+* run `yarn start'
+
+## Support and contact
+If you have any issues viewing this site or any general questions about it please email me at
+_PeteTheBeatWells@gmail.com_
+
+## Technologies Used
+**Javascript ES6**  
+_for back-end business logic and functionality_
+
+**React**  
+_for front end responsiveness and routing_
+
+ **HTML**  
+ _for page construction_
+
+ **CSS**  
+_for general styling_
+
+### License
+Copyright (c) 2020 Peter Wells  
+Licensed under the GPL license.
+
+_Last updated 2/20/2020_
+
+
+
+## Auto Generated create-react-app readme:
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
