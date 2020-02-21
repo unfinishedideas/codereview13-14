@@ -5,7 +5,7 @@ import BeersContainer from './components/BeersContainer';
 import NewBeerControl from './components/NewBeerControl';
 import Error404 from './components/Error404';
 import { Switch, Route } from 'react-router-dom';
-
+import { v4 } from 'uuid';
 
 const initialBeers = [
   {
@@ -15,7 +15,8 @@ const initialBeers = [
     alcoholContent: '7%',
     type: 'Red Ale',
     promoText: 'Brewed in beautiful Eugene, OR. This fine beer will be sure to get you nice and boozy.',
-    pintsLeft: 124
+    pintsLeft: 124,
+    id: v4()
   },
   {
     name: 'Hipster Stuff',
@@ -24,7 +25,8 @@ const initialBeers = [
     alcoholContent: '6.5%',
     type: 'Pilsner',
     promoText: 'Meditation scenester kickstarter, offal letterpress fanny pack asymmetrical banjo. Migas leggings chillwave tofu, tousled forage jianbing enamel pin keffiyeh kitsch twee crucifix yr etsy.',
-    pintsLeft: 124
+    pintsLeft: 124,
+    id: v4()
   },
   {
     name: 'Natty',
@@ -33,7 +35,8 @@ const initialBeers = [
     alcoholContent: '2%',
     type: 'Basically Water',
     promoText: 'Favorite of frat houses everywhere for it\'s non-existent flavor and low alcohol content. Perfect for a game of beer pong.',
-    pintsLeft: 124
+    pintsLeft: 124,
+    id: v4()
   },
 ];
 
@@ -53,8 +56,10 @@ class App extends React.Component {
     this.setState({masterBeerList: newMasterBeerList});
   };
 
-  handleSellPint() {
-    console.log('sold pint!');
+  handleSellPint(id) {
+    let newMasterBeerList = this.state.masterBeerList.slice();
+    newMasterBeerList.forEach(function(e){ if (e.id === id){ e.pintsLeft -= 1 }});
+    this.setState({masterBeerList: newMasterBeerList});
   }
 
   render(){

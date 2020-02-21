@@ -47,7 +47,7 @@ function Beer(props) {
   }
 
   function sellPint(){
-    props.onSellPint();
+    props.onSellPint(props.id);
   };
 
   return(

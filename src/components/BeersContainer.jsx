@@ -29,7 +29,7 @@ function BeersContainer(props) {
           promoText={beer.promoText}
           pintsLeft={beer.pintsLeft}
           onSellPint={props.onSellPint}
-          key={beer.id}
+          id={beer.id}
         />
       )}
       </div>
