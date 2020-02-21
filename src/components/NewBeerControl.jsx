@@ -23,5 +23,3 @@ NewBeerControl.propTypes = {
 }
 
 export default NewBeerControl
-
-// Add a login form here for employees

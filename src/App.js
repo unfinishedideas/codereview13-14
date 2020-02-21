@@ -68,7 +68,7 @@ class App extends React.Component {
       if (e.key === id){
         e.pintsLeft -= 1;
         if (e.pintsLeft <= 0)
-        {e.soldOut = true; console.log(`Sold out ${e.name}`);};
+        {e.soldOut = true;};
       }
     });
     this.setState({masterBeerList: newMasterBeerList});
@@ -86,11 +86,30 @@ class App extends React.Component {
 
   handleRemoveBeer(id) {
     let newMasterBeerList = this.state.masterBeerList.slice();
+    let i = 0;
     newMasterBeerList.forEach(function(e){
       if (e.key === id){
-        e.pintsLeft = 124;
-        e.soldOut = false;
-      }});
+        let indexToSplice = i;
+      }
+      i += 1;
+      });
+      newMasterBeerList.splice(i,1);
+      this.setState({masterBeerList: newMasterBeerList});
+  }
+
+  handleUpdateInfo(id, name, brand, price, percent, type, promoText, pintsLeft) {
+    let newMasterBeerList = this.state.masterBeerList.slice();
+    newMasterBeerList.forEach(function(e){
+      if (e.key === id){
+        e.name = name;
+        e.brand = brand;
+        e.price = price;
+        e.percent = percent;
+        e.type = type;
+        e.promoText = promoText;
+        e.pintsLeft = pintsLeft;
+      }
+      });
       this.setState({masterBeerList: newMasterBeerList});
   }
 
@@ -101,7 +120,6 @@ class App extends React.Component {
           <Route exact path='/' component={Homepage}/>
           <Route path='/beers' render={()=><BeersContainer masterBeerList={this.state.masterBeerList} onSellPint={this.handleSellPint} onRestock={this.handleRestockKeg}/>} />
           <Route path='/newbeer' render={()=><NewBeerControl onNewBeerCreation={this.handleAddBeerToList}/>} />
-          <Route path='/editbeer' render={()=><EditBeerControl onRemove={this.handleRemoveBeer}/>} />
           <Route component={Error404} />
         </Switch>
         <Footer/>

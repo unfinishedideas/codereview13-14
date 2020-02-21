@@ -45,6 +45,9 @@ function Beer(props) {
     width: '72px',
     height: '50px'
   }
+  const soldOutTextStyle = {
+    textAlign: 'center'
+  }
 
   function sellPint(){
     props.onSellPint(props.id);
@@ -53,12 +56,13 @@ function Beer(props) {
     props.onRestock(props.id);
   };
 
+
   let currentButton = null;
   if (!props.soldOut) {
     currentButton = <button style={sellPintButtonStyle} onClick={sellPint}>Sell Pint</button>;
   }
   else {
-    currentButton = <button style={sellPintButtonStyle} onClick={restockKeg}>Restock {props.name}</button>;
+    currentButton = <p style={soldOutTextStyle}>SOLD OUT</p>;
   }
 
   return(
@@ -66,6 +70,7 @@ function Beer(props) {
       <div style={leftStyle}>
         <img style={bottleStyle} src={bottle} alt="bottle graphic"/>
         {currentButton}
+        <button style={sellPintButtonStyle} onClick={restockKeg}>Restock {props.name}</button>
       </div>
       <div style={infoBoxStyle}>
         <h3 style={beerNameStyle}>{props.name}</h3>
