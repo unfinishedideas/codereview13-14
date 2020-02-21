@@ -46,8 +46,10 @@ class App extends React.Component {
     this.handleAddBeerToList = this.handleAddBeerToList.bind(this);
   }
 
-  handleAddBeerToList() {
-    console.log("oo");
+  handleAddBeerToList(beer) {
+    let newMasterBeerList = this.state.masterBeerList.slice();
+    newMasterBeerList.push(beer);
+    this.setState({masterBeerList: newMasterBeerList});
   };
 
   render(){
