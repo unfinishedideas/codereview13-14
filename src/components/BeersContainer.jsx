@@ -39,12 +39,8 @@ function BeersContainer(props) {
 // <Link style={linkStyle} to="/">Edit</Link>
 
 BeersContainer.propTypes = {
-  masterBeerList: PropTypes.array.isRequired
+  masterBeerList: PropTypes.array.isRequired,
+  sellPint: PropTypes.func.isRequired
 }
-
-// Beer.propTypes = {
-//   type: PropTypes.string.isRequired,
-//   masterBeerList: PropTypes.array.isRequired
-// };
 
 export default BeersContainer;

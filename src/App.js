@@ -44,6 +44,7 @@ class App extends React.Component {
       masterBeerList: beers
     };
     this.handleAddBeerToList = this.handleAddBeerToList.bind(this);
+    this.handleSellPint = this.handleSellPint.bind(this);
   }
 
   handleAddBeerToList(beer) {
@@ -52,12 +53,16 @@ class App extends React.Component {
     this.setState({masterBeerList: newMasterBeerList});
   };
 
+  handleSellPint() {
+    console.log('sold pint!');
+  }
+
   render(){
     return (
       <div>
         <Switch>
           <Route exact path='/' component={Homepage}/>
-          <Route path='/beers' render={()=><BeersContainer masterBeerList={this.state.masterBeerList}/>} />
+          <Route path='/beers' render={()=><BeersContainer masterBeerList={this.state.masterBeerList} sellPint={this.handleSellPint}/>} />
           <Route path='/newbeer' render={()=><NewBeerControl onNewBeerCreation={this.handleAddBeerToList}/>} />
           <Route component={Error404} />
         </Switch>
