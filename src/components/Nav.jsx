@@ -10,7 +10,8 @@ function Nav() {
   }
   const linkStyle = {
     paddingRight: '12px',
-    color: '#DDDBA9'
+    color: '#DDDBA9',
+    textDecoration: 'none'
   }
   return(
     <div style={navStyle}>
