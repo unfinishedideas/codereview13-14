@@ -5,9 +5,7 @@ import Nav from './Nav';
 function Header(props) {
   const headerStyle = {
     height: '200px',
-    // display: 'flex',
-    // alignItems: 'center',
-    backgroundColor: '#ac3232',
+    backgroundColor: '#772222',
     color: 'white'
   }
   const heroTextStyle = {

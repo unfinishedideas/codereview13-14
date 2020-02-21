@@ -37,7 +37,6 @@ function BeersContainer(props) {
     </div>
   )
 }
-// <Link style={linkStyle} to="/">Edit</Link>
 
 BeersContainer.propTypes = {
   masterBeerList: PropTypes.array.isRequired,

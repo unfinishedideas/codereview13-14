@@ -7,7 +7,7 @@ import Error404 from './components/Error404';
 import { Switch, Route } from 'react-router-dom';
 
 
-const beers = [
+const initialBeers = [
   {
     name: 'Boozy',
     brand: 'Ninkasi',
@@ -41,7 +41,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      masterBeerList: beers
+      masterBeerList: initialBeers
     };
     this.handleAddBeerToList = this.handleAddBeerToList.bind(this);
     this.handleSellPint = this.handleSellPint.bind(this);
