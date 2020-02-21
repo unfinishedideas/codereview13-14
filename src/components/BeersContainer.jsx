@@ -15,6 +15,7 @@ function BeersContainer(props) {
     paddingRight: '12px',
     color: '#DDDBA9'
   }
+
   return(
     <div>
       <Header title="The Beers"/>
@@ -29,7 +30,9 @@ function BeersContainer(props) {
           promoText={beer.promoText}
           pintsLeft={beer.pintsLeft}
           onSellPint={props.onSellPint}
-          id={beer.id}
+          soldOut={props.soldOut}
+          key={beer.key}
+          id={beer.key}
         />
       )}
       </div>

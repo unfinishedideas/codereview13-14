@@ -16,7 +16,8 @@ const initialBeers = [
     type: 'Red Ale',
     promoText: 'Brewed in beautiful Eugene, OR. This fine beer will be sure to get you nice and boozy.',
     pintsLeft: 124,
-    id: v4()
+    key: v4(),
+    soldOut: false
   },
   {
     name: 'Hipster Stuff',
@@ -26,7 +27,8 @@ const initialBeers = [
     type: 'Pilsner',
     promoText: 'Meditation scenester kickstarter, offal letterpress fanny pack asymmetrical banjo. Migas leggings chillwave tofu, tousled forage jianbing enamel pin keffiyeh kitsch twee crucifix yr etsy.',
     pintsLeft: 124,
-    id: v4()
+    key: v4(),
+    soldOut: false
   },
   {
     name: 'Natty',
@@ -36,7 +38,8 @@ const initialBeers = [
     type: 'Basically Water',
     promoText: 'Favorite of frat houses everywhere for it\'s non-existent flavor and low alcohol content. Perfect for a game of beer pong.',
     pintsLeft: 124,
-    id: v4()
+    key: v4(),
+    soldOut: false
   },
 ];
 
@@ -58,7 +61,13 @@ class App extends React.Component {
 
   handleSellPint(id) {
     let newMasterBeerList = this.state.masterBeerList.slice();
-    newMasterBeerList.forEach(function(e){ if (e.id === id){ e.pintsLeft -= 1 }});
+    newMasterBeerList.forEach(function(e){
+      if (e.key === id){
+        e.pintsLeft -= 1;
+        if (e.pintsLeft < 120)
+        {e.soldOut = true; console.log(`Sold out ${e.name}`);};
+      }
+    });
     this.setState({masterBeerList: newMasterBeerList});
   }
 

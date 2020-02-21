@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from "prop-types";
 import bottle from '../assets/img/bottle.png'
 
@@ -55,6 +55,7 @@ function Beer(props) {
       <div style={leftStyle}>
         <img style={bottleStyle} src={bottle} alt="bottle graphic"/>
         <button style={sellPintButtonStyle} onClick={sellPint}>Sell Pint</button>
+
       </div>
       <div style={infoBoxStyle}>
         <h3 style={beerNameStyle}>{props.name}</h3>
@@ -77,7 +78,10 @@ Beer.propTypes = {
   type: PropTypes.string.isRequired,
   promoText: PropTypes.string.isRequired,
   pintsLeft: PropTypes.number.isRequired,
-  onSellPint: PropTypes.func.isRequired
+  onSellPint: PropTypes.func.isRequired,
+  soldOut: PropTypes.bool.isRequired,
+  key: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired
 };
 
 export default Beer;
