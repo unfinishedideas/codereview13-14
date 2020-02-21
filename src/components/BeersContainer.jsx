@@ -19,8 +19,7 @@ function BeersContainer(props) {
     <div>
       <Header title="The Beers"/>
       <div style={gridBox}>
-        {console.log(props)}
-      {props.masterBeerList.map((beer, index) =>
+      {props.masterBeerList.map((beer) =>
         <Beer
           name={beer.name}
           brand={beer.brand}
@@ -30,7 +29,7 @@ function BeersContainer(props) {
           promoText={beer.promoText}
           pintsLeft={beer.pintsLeft}
           onSellPint={props.onSellPint}
-          key={index}
+          key={beer.id}
         />
       )}
       </div>

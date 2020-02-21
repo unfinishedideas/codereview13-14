@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { v4 } from 'uuid';
 
 function NewBeerForm(props) {
   const submitBtnStyle = {
@@ -28,7 +29,7 @@ function NewBeerForm(props) {
 
   function newBeerCallback(event) {
     event.preventDefault();
-    props.onNewBeerCreation({name: _name.value, brand: _brand.value, price: _price.value, alcoholContent: _alcoholContent.value, type: _type.value, promoText: _promoText.value, pintsLeft: 124})
+    props.onNewBeerCreation({name: _name.value, brand: _brand.value, price: _price.value, alcoholContent: _alcoholContent.value, type: _type.value, promoText: _promoText.value, id: v4(), pintsLeft: 124})
     _name.value = '';
     _brand.value = '';
     _price.value = '';

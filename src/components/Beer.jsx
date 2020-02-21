@@ -26,15 +26,15 @@ function Beer(props) {
   }
   const infoTextStyle = {
     textAlign: 'right',
-    color: 'rgb(150,150,255)',
+    color: '#BDBDFF',
   }
   const bottleStyle = {
     height: '112px',
     width: 'auto',
     display: 'block',
-marginLeft: 'auto',
-marginRight: 'auto',
-marginBottom: '10px'
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginBottom: '10px'
   }
   const leftStyle = {
     marginRight: '25px',
