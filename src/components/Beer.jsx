@@ -40,6 +40,7 @@ function Beer(props) {
         <p style={littleText}>Price: <em style={infoTextStyle}>{props.price}</em></p>
         <p style={littleText}>Alcohol Content: <em style={infoTextStyle}>{props.alcoholContent}</em></p>
         <p style={littleText}>Type: <em style={infoTextStyle}>{props.type}</em></p>
+        <p style={littleText}>Pints Left: <em style={infoTextStyle}>{props.pintsLeft}</em></p>
       </div>
       <p><em>{props.promoText}</em></p>
     </div>
@@ -52,7 +53,8 @@ Beer.propTypes = {
   price: PropTypes.string.isRequired,
   alcoholContent: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  promoText: PropTypes.string.isRequired
+  promoText: PropTypes.string.isRequired,
+  pintsLeft: PropTypes.number.isRequired
 };
 
 export default Beer;
