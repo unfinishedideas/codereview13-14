@@ -29,10 +29,11 @@ function BeersContainer(props) {
           type={beer.type}
           promoText={beer.promoText}
           pintsLeft={beer.pintsLeft}
-          onSellPint={props.onSellPint}
-          soldOut={props.soldOut}
+          soldOut={beer.soldOut}
           key={beer.key}
           id={beer.key}
+          onSellPint={props.onSellPint}
+          onRestock={props.onRestock}
         />
       )}
       </div>

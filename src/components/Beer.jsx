@@ -49,13 +49,23 @@ function Beer(props) {
   function sellPint(){
     props.onSellPint(props.id);
   };
+  function restockKeg(){
+    props.onRestock(props.id);
+  };
+
+  let currentButton = null;
+  if (!props.soldOut) {
+    currentButton = <button style={sellPintButtonStyle} onClick={sellPint}>Sell Pint</button>;
+  }
+  else {
+    currentButton = <button style={sellPintButtonStyle} onClick={restockKeg}>Restock {props.name}</button>;
+  }
 
   return(
     <div style={beerBoxStyle}>
       <div style={leftStyle}>
         <img style={bottleStyle} src={bottle} alt="bottle graphic"/>
-        <button style={sellPintButtonStyle} onClick={sellPint}>Sell Pint</button>
-
+        {currentButton}
       </div>
       <div style={infoBoxStyle}>
         <h3 style={beerNameStyle}>{props.name}</h3>
@@ -79,8 +89,8 @@ Beer.propTypes = {
   promoText: PropTypes.string.isRequired,
   pintsLeft: PropTypes.number.isRequired,
   onSellPint: PropTypes.func.isRequired,
+  onRestock: PropTypes.func.isRequired,
   soldOut: PropTypes.bool.isRequired,
-  key: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired
 };
 

@@ -29,7 +29,7 @@ function NewBeerForm(props) {
 
   function newBeerCallback(event) {
     event.preventDefault();
-    props.onNewBeerCreation({name: _name.value, brand: _brand.value, price: _price.value, alcoholContent: _alcoholContent.value, type: _type.value, promoText: _promoText.value, id: v4(), pintsLeft: 124})
+    props.onNewBeerCreation({name: _name.value, brand: _brand.value, price: _price.value, alcoholContent: _alcoholContent.value, type: _type.value, promoText: _promoText.value, id: v4(), pintsLeft: 124, soldOut: false})
     _name.value = '';
     _brand.value = '';
     _price.value = '';
@@ -43,7 +43,7 @@ function NewBeerForm(props) {
       <form style={newBeerFormStyles} action="./#/beers" method="none">
 
         <div>
-          <label for="name">Name</label>
+          <label>Name</label>
         </div>
         <div>
           <input name="name" placeholder="ex. Natty Lite" ref={(input) => {_name = input;}}/>
@@ -51,7 +51,7 @@ function NewBeerForm(props) {
         <div/>
 
         <div>
-          <label for="brand">Brand</label>
+          <label>Brand</label>
         </div>
         <div>
           <input name="brand" placeholder="ex. Pond Scum Brewery" ref={(input) => {_brand = input;}}/>
@@ -59,7 +59,7 @@ function NewBeerForm(props) {
         <div/>
 
         <div>
-          <label for="price">Price</label>
+          <label>Price</label>
         </div>
         <div>
           <input name="price" placeholder="ex. $4.00" ref={(input) => {_price = input;}}/>
@@ -67,7 +67,7 @@ function NewBeerForm(props) {
         <div/>
 
         <div>
-          <label for="alcoholContent">Alcohol Content</label>
+          <label>Alcohol Content</label>
         </div>
         <div>
           <input name="alcoholContent" placeholder="ex. 7%" ref={(input) => {_alcoholContent = input;}}/>
@@ -75,7 +75,7 @@ function NewBeerForm(props) {
         <div/>
 
         <div>
-          <label for="type">Type</label>
+          <label>Type</label>
         </div>
         <div>
           <input name="type" placeholder="ex. IPA" ref={(input) => {_type = input;}}/>
@@ -83,7 +83,7 @@ function NewBeerForm(props) {
         <div/>
 
         <div>
-          <label for="promoText">Promotional Text</label>
+          <label>Promotional Text</label>
         </div>
         <div>
           <textarea name="promoText" placeholder="Promotional text here" ref={(input) => {_promoText = input;}}/>
