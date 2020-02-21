@@ -43,14 +43,20 @@ class App extends React.Component {
     this.state = {
       masterBeerList: beers
     };
+    this.handleAddBeerToList = this.handleAddBeerToList.bind(this);
   }
+
+  handleAddBeerToList() {
+    console.log("oo");
+  };
+
   render(){
     return (
       <div>
         <Switch>
           <Route exact path='/' component={Homepage}/>
           <Route path='/beers' render={()=><BeersContainer masterBeerList={this.state.masterBeerList}/>} />
-          <Route path='/newbeer' component={NewBeerControl}/>
+          <Route path='/newbeer' render={()=><NewBeerControl onNewBeerCreation={this.handleAddBeerToList}/>} />
           <Route component={Error404} />
         </Switch>
         <Footer/>
