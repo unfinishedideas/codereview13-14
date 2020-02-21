@@ -43,7 +43,7 @@ function Beer(props) {
 
   const sellPintButtonStyle = {
     width: '72px',
-    height: '50px'
+    // height: '50px'
   }
   const soldOutTextStyle = {
     textAlign: 'center'
@@ -55,7 +55,12 @@ function Beer(props) {
   function restockKeg(){
     props.onRestock(props.id);
   };
+  function showEdit(){
 
+  }
+  function removeBeer(){
+    props.onRemoveBeer(props.id);
+  }
 
   let currentButton = null;
   if (!props.soldOut) {
@@ -67,11 +72,15 @@ function Beer(props) {
 
   return(
     <div style={beerBoxStyle}>
+
       <div style={leftStyle}>
         <img style={bottleStyle} src={bottle} alt="bottle graphic"/>
         {currentButton}
-        <button style={sellPintButtonStyle} onClick={restockKeg}>Restock {props.name}</button>
+        <button style={sellPintButtonStyle} onClick={restockKeg}>Restock</button>
+        <button style={sellPintButtonStyle} onClick={showEdit}>Edit</button>
+        <button style={sellPintButtonStyle} onClick={removeBeer}>Remove</button>
       </div>
+
       <div style={infoBoxStyle}>
         <h3 style={beerNameStyle}>{props.name}</h3>
         <h4>{props.brand}</h4>
@@ -94,8 +103,9 @@ Beer.propTypes = {
   promoText: PropTypes.string.isRequired,
   pintsLeft: PropTypes.number.isRequired,
   soldOut: PropTypes.bool.isRequired,
-  onSellPint: PropTypes.func.isRequired,
-  onRestock: PropTypes.func.isRequired,
+  onSellPint: PropTypes.func,
+  onRestock: PropTypes.func,
+  onRemoveBeer: PropTypes.func,
   id: PropTypes.string.isRequired
 };
 

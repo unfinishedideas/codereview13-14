@@ -15,7 +15,7 @@ function BeersContainer(props) {
     paddingRight: '12px',
     color: '#DDDBA9'
   }
-
+  console.log(props);
   return(
     <div>
       <Header title="The Beers"/>
@@ -34,6 +34,7 @@ function BeersContainer(props) {
           id={beer.key}
           onSellPint={props.onSellPint}
           onRestock={props.onRestock}
+          onRemoveBeer={props.onRemoveBeer}
         />
       )}
       </div>
@@ -43,7 +44,10 @@ function BeersContainer(props) {
 
 BeersContainer.propTypes = {
   masterBeerList: PropTypes.array.isRequired,
-  onSellPint: PropTypes.func.isRequired
+  onSellPint: PropTypes.func.isRequired,
+  currentRouterPath: PropTypes.string.isRequired,
+  onBeerSelection: PropTypes.func.isRequired,
+  onRemoveBeer: PropTypes.func.isRequired
 }
 
 export default BeersContainer;
