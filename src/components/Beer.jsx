@@ -31,6 +31,11 @@ function Beer(props) {
   const bottleStyle = {
     paddingRight: '25px'
   }
+
+  function sellPint(){
+    props.onSellPint();
+  };
+
   return(
     <div style={beerBoxStyle}>
       <img style={bottleStyle} src={bottle} alt="bottle graphic"/>
@@ -41,6 +46,7 @@ function Beer(props) {
         <p style={littleText}>Alcohol Content: <em style={infoTextStyle}>{props.alcoholContent}</em></p>
         <p style={littleText}>Type: <em style={infoTextStyle}>{props.type}</em></p>
         <p style={littleText}>Pints Left: <em style={infoTextStyle}>{props.pintsLeft}</em></p>
+        <button onClick={sellPint}>Sell Pint</button>
       </div>
       <p><em>{props.promoText}</em></p>
     </div>
@@ -54,7 +60,8 @@ Beer.propTypes = {
   alcoholContent: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   promoText: PropTypes.string.isRequired,
-  pintsLeft: PropTypes.number.isRequired
+  pintsLeft: PropTypes.number.isRequired,
+  onSellPint: PropTypes.func.isRequired
 };
 
 export default Beer;

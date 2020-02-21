@@ -30,6 +30,7 @@ function BeersContainer(props) {
           promoText={beer.promoText}
           pintsLeft={beer.pintsLeft}
           key={index}
+          onSellPint={props.onSellPint}
         />
       )}
       </div>
@@ -40,7 +41,7 @@ function BeersContainer(props) {
 
 BeersContainer.propTypes = {
   masterBeerList: PropTypes.array.isRequired,
-  sellPint: PropTypes.func.isRequired
+  onSellPint: PropTypes.func.isRequired
 }
 
 export default BeersContainer;
