@@ -10,7 +10,7 @@ function Beer(props) {
     display: 'flex',
     width: '75%',
     margin: '20px auto',
-    height: '250px'
+    height: '216px'
   }
   const beerNameStyle = {
     margin: '0',
@@ -29,13 +29,21 @@ function Beer(props) {
     color: 'rgb(150,150,255)',
   }
   const bottleStyle = {
-    paddingRight: '25px',
-    height: '100%',
-    width: 'auto'
+    height: '112px',
+    width: 'auto',
+    display: 'block',
+marginLeft: 'auto',
+marginRight: 'auto',
+marginBottom: '10px'
+  }
+  const leftStyle = {
+    marginRight: '25px',
+    width: '100px'
   }
 
   const sellPintButtonStyle = {
-
+    width: '72px',
+    height: '50px'
   }
 
   function sellPint(){
@@ -44,7 +52,10 @@ function Beer(props) {
 
   return(
     <div style={beerBoxStyle}>
-      <img style={bottleStyle} src={bottle} alt="bottle graphic"/>
+      <div style={leftStyle}>
+        <img style={bottleStyle} src={bottle} alt="bottle graphic"/>
+        <button style={sellPintButtonStyle} onClick={sellPint}>Sell Pint</button>
+      </div>
       <div style={infoBoxStyle}>
         <h3 style={beerNameStyle}>{props.name}</h3>
         <h4>{props.brand}</h4>
@@ -52,7 +63,6 @@ function Beer(props) {
         <p style={littleText}>Alcohol Content: <em style={infoTextStyle}>{props.alcoholContent}</em></p>
         <p style={littleText}>Type: <em style={infoTextStyle}>{props.type}</em></p>
         <p style={littleText}>Pints Left: <em style={infoTextStyle}>{props.pintsLeft}</em></p>
-        <button style={sellPintButtonStyle} onClick={sellPint}>Sell Pint</button>
       </div>
       <p><em>{props.promoText}</em></p>
     </div>

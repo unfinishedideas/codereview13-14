@@ -29,8 +29,8 @@ function BeersContainer(props) {
           type={beer.type}
           promoText={beer.promoText}
           pintsLeft={beer.pintsLeft}
-          key={index}
           onSellPint={props.onSellPint}
+          key={index}
         />
       )}
       </div>
