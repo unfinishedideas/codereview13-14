@@ -62,6 +62,10 @@ function Beer(props) {
     props.onRemoveBeer(props.id);
   }
 
+  function updateSelectedTicket(){
+    props.onBeerSelection(props.id)
+  }
+
   let currentButton = null;
   if (!props.soldOut) {
     currentButton = <button style={sellPintButtonStyle} onClick={sellPint}>Sell Pint</button>;
@@ -106,6 +110,7 @@ Beer.propTypes = {
   onSellPint: PropTypes.func,
   onRestock: PropTypes.func,
   onRemoveBeer: PropTypes.func,
+  onBeerSelection: PropTypes.func,
   id: PropTypes.string.isRequired
 };
 

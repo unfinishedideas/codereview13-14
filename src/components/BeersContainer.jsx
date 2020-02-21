@@ -15,12 +15,16 @@ function BeersContainer(props) {
     paddingRight: '12px',
     color: '#DDDBA9'
   }
-  console.log(props);
-  return(
-    <div>
-      <Header title="The Beers"/>
-      <div style={gridBox}>
-      {props.masterBeerList.map((beer) =>
+  const noBeersTextStyle = {
+    textAlign: 'center'
+  }
+
+  let display = null;
+
+  if (props.masterBeerList.length < 1) {
+    display = <h2 style={noBeersTextStyle}>No beers currently available in taproom</h2>
+  } else  {
+    display = <div style={gridBox}>{props.masterBeerList.map((beer) =>
         <Beer
           name={beer.name}
           brand={beer.brand}
@@ -35,19 +39,27 @@ function BeersContainer(props) {
           onSellPint={props.onSellPint}
           onRestock={props.onRestock}
           onRemoveBeer={props.onRemoveBeer}
-        />
+          onBeerSelection={props.onBeerSelection}
+          />
       )}
-      </div>
     </div>
-  )
+  }
+
+  return(
+    <div>
+      <Header title="The Beers"/>
+      {display}
+    </div>
+  );
 }
+
 
 BeersContainer.propTypes = {
   masterBeerList: PropTypes.array.isRequired,
-  onSellPint: PropTypes.func.isRequired,
   currentRouterPath: PropTypes.string.isRequired,
   onBeerSelection: PropTypes.func.isRequired,
-  onRemoveBeer: PropTypes.func.isRequired
+  onSellPint: PropTypes.func,
+  onRemoveBeer: PropTypes.func
 }
 
 export default BeersContainer;
