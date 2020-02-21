@@ -3,6 +3,7 @@ import Homepage from './components/Homepage';
 import Footer from './components/Footer';
 import BeersContainer from './components/BeersContainer';
 import NewBeerControl from './components/NewBeerControl';
+import EditBeerControl from './components/EditBeerControl';
 import Error404 from './components/Error404';
 import { Switch, Route } from 'react-router-dom';
 import { v4 } from 'uuid';
@@ -52,6 +53,7 @@ class App extends React.Component {
     this.handleAddBeerToList = this.handleAddBeerToList.bind(this);
     this.handleSellPint = this.handleSellPint.bind(this);
     this.handleRestockKeg = this.handleRestockKeg.bind(this);
+    this.handleRemoveBeer = this.handleRemoveBeer.bind(this);
   }
 
   handleAddBeerToList(beer) {
@@ -82,6 +84,16 @@ class App extends React.Component {
       this.setState({masterBeerList: newMasterBeerList});
   }
 
+  handleRemoveBeer(id) {
+    let newMasterBeerList = this.state.masterBeerList.slice();
+    newMasterBeerList.forEach(function(e){
+      if (e.key === id){
+        e.pintsLeft = 124;
+        e.soldOut = false;
+      }});
+      this.setState({masterBeerList: newMasterBeerList});
+  }
+
   render(){
     return (
       <div>
@@ -89,6 +101,7 @@ class App extends React.Component {
           <Route exact path='/' component={Homepage}/>
           <Route path='/beers' render={()=><BeersContainer masterBeerList={this.state.masterBeerList} onSellPint={this.handleSellPint} onRestock={this.handleRestockKeg}/>} />
           <Route path='/newbeer' render={()=><NewBeerControl onNewBeerCreation={this.handleAddBeerToList}/>} />
+          <Route path='/editbeer' render={()=><EditBeerControl onRemove={this.handleRemoveBeer}/>} />
           <Route component={Error404} />
         </Switch>
         <Footer/>

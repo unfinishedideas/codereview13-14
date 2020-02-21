@@ -29,7 +29,7 @@ function NewBeerForm(props) {
 
   function newBeerCallback(event) {
     event.preventDefault();
-    props.onNewBeerCreation({name: _name.value, brand: _brand.value, price: _price.value, alcoholContent: _alcoholContent.value, type: _type.value, promoText: _promoText.value, id: v4(), pintsLeft: 124, soldOut: false})
+    props.onNewBeerCreation({name: _name.value, brand: _brand.value, price: '$'+_price.value, alcoholContent: _alcoholContent.value+'%', type: _type.value, promoText: _promoText.value, key: v4(), pintsLeft: 124, soldOut: false})
     _name.value = '';
     _brand.value = '';
     _price.value = '';
@@ -59,10 +59,10 @@ function NewBeerForm(props) {
         <div/>
 
         <div>
-          <label>Price</label>
+          <label>Price ($)</label>
         </div>
         <div>
-          <input name="price" placeholder="ex. $4.00" ref={(input) => {_price = input;}}/>
+          <input name="price" placeholder="ex. 4.00" ref={(input) => {_price = input;}}/>
         </div>
         <div/>
 
@@ -70,7 +70,7 @@ function NewBeerForm(props) {
           <label>Alcohol Content</label>
         </div>
         <div>
-          <input name="alcoholContent" placeholder="ex. 7%" ref={(input) => {_alcoholContent = input;}}/>
+          <input name="alcoholContent" placeholder="ex. 7" ref={(input) => {_alcoholContent = input;}}/>
         </div>
         <div/>
 

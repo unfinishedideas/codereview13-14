@@ -88,9 +88,9 @@ Beer.propTypes = {
   type: PropTypes.string.isRequired,
   promoText: PropTypes.string.isRequired,
   pintsLeft: PropTypes.number.isRequired,
+  soldOut: PropTypes.bool.isRequired,
   onSellPint: PropTypes.func.isRequired,
   onRestock: PropTypes.func.isRequired,
-  soldOut: PropTypes.bool.isRequired,
   id: PropTypes.string.isRequired
 };
 
