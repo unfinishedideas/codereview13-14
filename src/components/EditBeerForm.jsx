@@ -1,21 +1,109 @@
 import React from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
+import { v4 } from 'uuid';
 
 function EditBeerForm(props) {
+  const submitBtnStyle = {
+    marginTop: '20px',
+    height: '50px',
+    backgroundColor: '#ac3232',
+    color: 'white',
+    border: 'none'
+  }
+  const newBeerFormStyles = {
+    border:' rgb(10,10,10) solid 2px',
+    backgroundColor: 'rgb(50,50,50)',
+    padding: '40px',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    width: '75%',
+    margin: '0 auto'
+  }
+
+  let _name = null;
+  let _brand = null;
+  let _price = null;
+  let _alcoholContent = null;
+  let _type = null;
+  let _promoText = null;
+
+  const beerNameStyle = {
+    textAlign: 'center'
+  }
+
+  function newBeerCallback(event) {
+    event.preventDefault();
+    props.onUpdateBeer({name: _name.value, brand: _brand.value, price: '$'+_price.value, alcoholContent: _alcoholContent.value+'%', type: _type.value, promoText: _promoText.value, key: v4(), pintsLeft: 124, soldOut: false})
+    _name.value = '';
+    _brand.value = '';
+    _price.value = '';
+    _alcoholContent.value = '';
+    _type.value = '';
+    _promoText.value = '';
+  }
+
   return(
     <div>
-      <form action="index.html" method="post">
-        <label for="name">Name</label>
-        <input name="name" placeholder="ex. Natty Lite"/>
-        <label for="brand">Brand</label>
-        <input name="brand" placeholder="ex. Pond Scum Brewery"/>
-        <label for="price">Price</label>
-        <input name="price" placeholder="ex. $4.00"/>
-        <label for="alcoholContent">Alcohol Content</label>
-        <input name="alcoholContent" placeholder="ex. 7%"/>
-        <label for="type">Type</label>
-        <input name="type" placeholder="ex. IPA"/>
-        <button type="submit">Submit</button>
+      <h2 style={beerNameStyle}>Editing {props.selectedBeer.name}</h2>
+      <form style={newBeerFormStyles} action="./#/beers" method="none">
+
+        <div>
+          <label>Name</label>
+        </div>
+        <div>
+          <input name="name"  defaultValue={props.selectedBeer.name} ref={(input) => {_name = input;}}/>
+        </div>
+        <div/>
+
+        <div>
+          <label>Brand</label>
+        </div>
+        <div>
+          <input name="brand"  defaultValue={props.selectedBeer.brand} ref={(input) => {_brand = input;}}/>
+        </div>
+        <div/>
+
+        <div>
+          <label>Price ($)</label>
+        </div>
+        <div>
+          <input name="price"  defaultValue={props.selectedBeer.price} ref={(input) => {_price = input;}}/>
+        </div>
+        <div/>
+
+        <div>
+          <label>Alcohol Content</label>
+        </div>
+        <div>
+          <input name="alcoholContent"  defaultValue={props.selectedBeer.alcoholContent} ref={(input) => {_alcoholContent = input;}}/>
+        </div>
+        <div/>
+
+        <div>
+          <label>Type</label>
+        </div>
+        <div>
+          <input name="type"  defaultValue={props.selectedBeer.type} ref={(input) => {_type = input;}}/>
+        </div>
+        <div/>
+        <div>
+          <label>Pints Left</label>
+        </div>
+        <div>
+          <input name="type" defaultValue={props.selectedBeer.pintsLeft} ref={(input) => {_type = input;}}/>
+        </div>
+        <div/>
+
+        <div>
+          <label>Promotional Text</label>
+        </div>
+        <div>
+          <textarea name="promoText" defaultValue={props.selectedBeer.promoText} ref={(input) => {_promoText = input;}}/>
+        </div>
+        <div/>
+
+        <button style={submitBtnStyle} type="submit" onClick={newBeerCallback}>Submit</button>
+
       </form>
     </div>
 
@@ -23,7 +111,8 @@ function EditBeerForm(props) {
 }
 
 EditBeerForm.propTypes = {
-  beer: PropTypes.object.isRequired,
-};
+  onUpdateBeer: PropTypes.func.isRequired,
+  selectedBeer: PropTypes.object.isRequired
+}
 
 export default EditBeerForm;

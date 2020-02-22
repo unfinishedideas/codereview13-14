@@ -2,6 +2,7 @@ import React from 'react';
 import Beer from './Beer';
 import PropTypes from "prop-types";
 import Header from './Header';
+import EditBeerForm from './EditBeerForm'
 import { Link } from 'react-router-dom';
 
 
@@ -19,12 +20,10 @@ function BeersContainer(props) {
     textAlign: 'center'
   }
 
-  let display = null;
-
-  if (props.masterBeerList.length < 1) {
-    display = <h2 style={noBeersTextStyle}>No beers currently available in taproom</h2>
-  } else  {
-    display = <div style={gridBox}>{props.masterBeerList.map((beer) =>
+return(
+  <div>
+    <Header title="The Beers"/>
+    <div style={gridBox}>{props.masterBeerList.map((beer) =>
         <Beer
           name={beer.name}
           brand={beer.brand}
@@ -43,20 +42,14 @@ function BeersContainer(props) {
           />
       )}
     </div>
-  }
-
-  return(
-    <div>
-      <Header title="The Beers"/>
-      {display}
-    </div>
+  </div>
   );
 }
-
 
 BeersContainer.propTypes = {
   masterBeerList: PropTypes.array.isRequired,
   currentRouterPath: PropTypes.string.isRequired,
+  selectedBeer: PropTypes.object,
   onBeerSelection: PropTypes.func.isRequired,
   onSellPint: PropTypes.func,
   onRemoveBeer: PropTypes.func

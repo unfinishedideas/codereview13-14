@@ -3,7 +3,7 @@ import Homepage from './components/Homepage';
 import Footer from './components/Footer';
 import BeersContainer from './components/BeersContainer';
 import NewBeerControl from './components/NewBeerControl';
-import EditBeersControl from './components/EditBeersControl';
+import EditBeerControl from './components/EditBeerControl';
 import Error404 from './components/Error404';
 import { Switch, Route } from 'react-router-dom';
 import { v4 } from 'uuid';
@@ -98,27 +98,28 @@ class App extends React.Component {
       });
       newMasterBeerList.splice(indexToSplice,1);
       this.setState({masterBeerList: newMasterBeerList});
+      this.setState({selectedBeer: null});
   }
 
-  handleUpdateInfo(id, name, brand, price, percent, type, promoText, pintsLeft) {
+  handleUpdateInfo(id, name, brand, price, alcoholContent, type, promoText, pintsLeft) {
     let newMasterBeerList = this.state.masterBeerList.slice();
     newMasterBeerList.forEach(function(e){
       if (e.key === id){
         e.name = name;
         e.brand = brand;
         e.price = price;
-        e.percent = percent;
+        e.alcoholContent = alcoholContent;
         e.type = type;
         e.promoText = promoText;
         e.pintsLeft = pintsLeft;
       }
       });
       this.setState({masterBeerList: newMasterBeerList});
+      this.setState({selectedBeer: null});
   }
 
   handleChangeSelectedBeer(beer) {
     this.setState({selectedBeer: beer});
-    console.log(`selected: ${beer.name}`);
   }
 
   render(){
@@ -126,9 +127,9 @@ class App extends React.Component {
       <div>
         <Switch>
           <Route exact path='/' component={Homepage}/>
-          <Route path='/beers' render={(props)=><BeersContainer masterBeerList={this.state.masterBeerList} onSellPint={this.handleSellPint} onRestock={this.handleRestockKeg} currentRouterPath={props.location.pathname} onBeerSelection={this.handleChangeSelectedBeer} onRemoveBeer={this.handleRemoveBeer}/>} />
-          <Route path='/editbeers' render={()=><EditBeersControl onRemoveBeer={this.handleRemoveBeer} onUpdateBeer={this.handleUpdateInfo}/>}/>
+          <Route path='/beers' render={(props)=><BeersContainer masterBeerList={this.state.masterBeerList} onSellPint={this.handleSellPint} onRestock={this.handleRestockKeg} currentRouterPath={props.location.pathname} onBeerSelection={this.handleChangeSelectedBeer} onRemoveBeer={this.handleRemoveBeer} selectedBeer={this.state.selectedBeer} onUpdateBeer={this.handleUpdateInfo}/>} />
           <Route path='/newbeer' render={()=><NewBeerControl onNewBeerCreation={this.handleAddBeerToList}/>} />
+          <Route path='/editbeer' render={()=><EditBeerControl selectedBeer={this.state.selectedBeer} onUpdateBeer={this.handleUpdateInfo}/>}/>
           <Route component={Error404} />
         </Switch>
         <Footer/>

@@ -44,6 +44,10 @@ function Beer(props) {
   const sellPintButtonStyle = {
     width: '72px',
     // height: '50px'
+    // width: 'auto',
+    display: 'block',
+    marginLeft: 'auto',
+    marginRight: 'auto',
   }
   const soldOutTextStyle = {
     textAlign: 'center'
@@ -62,8 +66,17 @@ function Beer(props) {
     props.onRemoveBeer(props.id);
   }
 
-  function updateSelectedTicket(){
-    props.onBeerSelection(props.id)
+  function updateSelectedBeer(){
+    props.onBeerSelection({
+              name: props.name,
+              brand: props.brand,
+              price: props.price,
+              alcoholContent: props.alcoholContent,
+              type: props.type,
+              promoText: props.promoText,
+              pintsLeft: props.pintsLeft,
+              soldOut: props.soldOut,
+              id: props.id});
   }
 
   let currentButton = null;
@@ -81,7 +94,7 @@ function Beer(props) {
         <img style={bottleStyle} src={bottle} alt="bottle graphic"/>
         {currentButton}
         <button style={sellPintButtonStyle} onClick={restockKeg}>Restock</button>
-        <button style={sellPintButtonStyle} onClick={showEdit}>Edit</button>
+        <button style={sellPintButtonStyle} onClick={updateSelectedBeer}>Edit</button>
         <button style={sellPintButtonStyle} onClick={removeBeer}>Remove</button>
       </div>
 
