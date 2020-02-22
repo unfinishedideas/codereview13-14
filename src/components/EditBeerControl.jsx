@@ -22,7 +22,7 @@ function EditBeerControl(props) {
 }
 
 EditBeerControl.propTypes = {
-  selectedBeer: PropTypes.func.isRequired,
+  selectedBeer: PropTypes.object,
   onUpdateBeer: PropTypes.func.isRequired
 }
 

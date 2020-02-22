@@ -26,19 +26,21 @@ function EditBeerForm(props) {
   let _alcoholContent = null;
   let _type = null;
   let _promoText = null;
+  let _pintsLeft = null;
 
   const beerNameStyle = {
     textAlign: 'center'
   }
 
-  function newBeerCallback(event) {
+  function editBeerCallback(event) {
     event.preventDefault();
-    props.onUpdateBeer({name: _name.value, brand: _brand.value, price: '$'+_price.value, alcoholContent: _alcoholContent.value+'%', type: _type.value, promoText: _promoText.value, key: v4(), pintsLeft: 124, soldOut: false})
+    props.onUpdateBeer({name: _name.value, brand: _brand.value, price: '$'+_price.value, alcoholContent: _alcoholContent.value+'%', type: _type.value, promoText: _promoText.value, key: props.selectedBeer.id, pintsLeft: _pintsLeft.value, soldOut: props.selectedBeer.soldOut})
     _name.value = '';
     _brand.value = '';
     _price.value = '';
     _alcoholContent.value = '';
     _type.value = '';
+    _pintsLeft.value = '';
     _promoText.value = '';
   }
 
@@ -90,7 +92,7 @@ function EditBeerForm(props) {
           <label>Pints Left</label>
         </div>
         <div>
-          <input name="type" defaultValue={props.selectedBeer.pintsLeft} ref={(input) => {_type = input;}}/>
+          <input name="type" defaultValue={props.selectedBeer.pintsLeft} ref={(input) => {_pintsLeft = input;}}/>
         </div>
         <div/>
 
@@ -102,7 +104,7 @@ function EditBeerForm(props) {
         </div>
         <div/>
 
-        <button style={submitBtnStyle} type="submit" onClick={newBeerCallback}>Submit</button>
+        <button style={submitBtnStyle} type="submit" onClick={editBeerCallback}>Submit</button>
 
       </form>
     </div>

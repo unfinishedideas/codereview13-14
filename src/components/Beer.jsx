@@ -66,6 +66,11 @@ function Beer(props) {
     props.onRemoveBeer(props.id);
   }
 
+  function getEditScreen() {
+    updateSelectedBeer()
+
+  }
+
   function updateSelectedBeer(){
     props.onBeerSelection({
               name: props.name,
@@ -94,15 +99,15 @@ function Beer(props) {
         <img style={bottleStyle} src={bottle} alt="bottle graphic"/>
         {currentButton}
         <button style={sellPintButtonStyle} onClick={restockKeg}>Restock</button>
-        <button style={sellPintButtonStyle} onClick={updateSelectedBeer}>Edit</button>
+        <button style={sellPintButtonStyle} onClick={getEditScreen}>Edit</button>
         <button style={sellPintButtonStyle} onClick={removeBeer}>Remove</button>
       </div>
 
       <div style={infoBoxStyle}>
         <h3 style={beerNameStyle}>{props.name}</h3>
         <h4>{props.brand}</h4>
-        <p style={littleText}>Price: <em style={infoTextStyle}>{props.price}</em></p>
-        <p style={littleText}>Alcohol Content: <em style={infoTextStyle}>{props.alcoholContent}</em></p>
+        <p style={littleText}>Price: <em style={infoTextStyle}>${props.price}</em></p>
+        <p style={littleText}>Alcohol Content: <em style={infoTextStyle}>{props.alcoholContent}%</em></p>
         <p style={littleText}>Type: <em style={infoTextStyle}>{props.type}</em></p>
         <p style={littleText}>Pints Left: <em style={infoTextStyle}>{props.pintsLeft}</em></p>
       </div>

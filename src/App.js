@@ -5,15 +5,15 @@ import BeersContainer from './components/BeersContainer';
 import NewBeerControl from './components/NewBeerControl';
 import EditBeerControl from './components/EditBeerControl';
 import Error404 from './components/Error404';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { v4 } from 'uuid';
 
 const initialBeers = [
   {
     name: 'Boozy',
     brand: 'Ninkasi',
-    price: '$4.00',
-    alcoholContent: '7%',
+    price: '4.00',
+    alcoholContent: '7',
     type: 'Red Ale',
     promoText: 'Brewed in beautiful Eugene, OR. This fine beer will be sure to get you nice and boozy.',
     pintsLeft: 124,
@@ -23,8 +23,8 @@ const initialBeers = [
   {
     name: 'Hipster Stuff',
     brand: 'Before It was Cool',
-    price: '$14.00',
-    alcoholContent: '6.5%',
+    price: '14.00',
+    alcoholContent: '6.5',
     type: 'Pilsner',
     promoText: 'Meditation scenester kickstarter, offal letterpress fanny pack asymmetrical banjo. Migas leggings chillwave tofu, tousled forage jianbing enamel pin keffiyeh kitsch twee crucifix yr etsy.',
     pintsLeft: 124,
@@ -34,8 +34,8 @@ const initialBeers = [
   {
     name: 'Natty',
     brand: 'Pond Water Brewing',
-    price: '$1.50',
-    alcoholContent: '2%',
+    price: '1.50',
+    alcoholContent: '2',
     type: 'Basically Water',
     promoText: 'Favorite of frat houses everywhere for it\'s non-existent flavor and low alcohol content. Perfect for a game of beer pong.',
     pintsLeft: 124,
@@ -55,6 +55,7 @@ class App extends React.Component {
     this.handleSellPint = this.handleSellPint.bind(this);
     this.handleRestockKeg = this.handleRestockKeg.bind(this);
     this.handleRemoveBeer = this.handleRemoveBeer.bind(this);
+    this.handleUpdateInfo = this.handleUpdateInfo.bind(this);
     this.handleChangeSelectedBeer = this.handleChangeSelectedBeer.bind(this);
   }
 
@@ -101,17 +102,18 @@ class App extends React.Component {
       this.setState({selectedBeer: null});
   }
 
-  handleUpdateInfo(id, name, brand, price, alcoholContent, type, promoText, pintsLeft) {
+  handleUpdateInfo(beer) {
+    console.log(beer);
     let newMasterBeerList = this.state.masterBeerList.slice();
-    newMasterBeerList.forEach(function(e){
-      if (e.key === id){
-        e.name = name;
-        e.brand = brand;
-        e.price = price;
-        e.alcoholContent = alcoholContent;
-        e.type = type;
-        e.promoText = promoText;
-        e.pintsLeft = pintsLeft;
+    newMasterBeerList.forEach(function(b){
+      if (b.key === beer.id){
+        b.name = beer.name;
+        b.brand = beer.brand;
+        b.price = beer.price;
+        b.alcoholContent = beer.alcoholContent;
+        b.type = beer.type;
+        b.promoText = beer.promoText;
+        b.pintsLeft = beer.pintsLeft;
       }
       });
       this.setState({masterBeerList: newMasterBeerList});
