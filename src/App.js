@@ -49,7 +49,9 @@ class App extends React.Component {
     super(props);
     this.state = {
       masterBeerList: initialBeers,
-      selectedBeer: null
+      selectedBeer: null,
+      toBeerList: false,
+      toEditBeer: false
     };
     this.handleAddBeerToList = this.handleAddBeerToList.bind(this);
     this.handleSellPint = this.handleSellPint.bind(this);
@@ -63,6 +65,7 @@ class App extends React.Component {
     let newMasterBeerList = this.state.masterBeerList.slice();
     newMasterBeerList.push(beer);
     this.setState({masterBeerList: newMasterBeerList});
+    this.setState({toBeerList: true})
   };
 
   handleSellPint(id) {
@@ -103,10 +106,9 @@ class App extends React.Component {
   }
 
   handleUpdateInfo(beer) {
-    console.log(beer);
     let newMasterBeerList = this.state.masterBeerList.slice();
     newMasterBeerList.forEach(function(b){
-      if (b.key === beer.id){
+      if (b.key === beer.key){
         b.name = beer.name;
         b.brand = beer.brand;
         b.price = beer.price;
@@ -118,13 +120,28 @@ class App extends React.Component {
       });
       this.setState({masterBeerList: newMasterBeerList});
       this.setState({selectedBeer: null});
+      this.setState({toBeerList: true})
   }
 
   handleChangeSelectedBeer(beer) {
     this.setState({selectedBeer: beer});
+    this.setState({toEditBeer: true})
+  }
+
+  resetRedirect() {
+    this.setState({toBeerList: false})
+    this.setState({toEditBeer: false})
   }
 
   render(){
+    if(this.state.toBeerList === true) {
+      this.resetRedirect();
+      return <Redirect exact to='/beers'/>
+    }
+    if(this.state.toEditBeer === true){
+      this.resetRedirect();
+      return <Redirect exact to='/editbeer'/>
+    }
     return (
       <div>
         <Switch>

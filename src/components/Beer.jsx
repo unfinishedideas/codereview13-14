@@ -67,11 +67,6 @@ function Beer(props) {
   }
 
   function getEditScreen() {
-    updateSelectedBeer()
-
-  }
-
-  function updateSelectedBeer(){
     props.onBeerSelection({
               name: props.name,
               brand: props.brand,
@@ -83,6 +78,7 @@ function Beer(props) {
               soldOut: props.soldOut,
               id: props.id});
   }
+
 
   let currentButton = null;
   if (!props.soldOut) {
