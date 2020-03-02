@@ -1,15 +1,22 @@
 # Beers-n-stuff (CodeReview13)
 ## A REACT app which depicts a taproom website
 
-![alt text](/src/assets/img/beersnstuffdesign.png "Component layout")
+
 
 ## About
 A react based webpage which displays a continually updated list of beers for a fictional Taproom called 'Beers-n-Stuff'. Written as a codereview for Epicodus this app utilzes React and State to create a responsive page.
 
+## Deployment  
+To see this app either run install locally or view on Heroku at: https://desolate-retreat-61493.herokuapp.com/#/
+
 ## Installation
 * Clone git repository at https://github.com/unfinishedideas/codereview13.git
 * run `npm install`
-* run `yarn start'
+* run `npm run start`
+
+## Component Diagram
+
+![alt text](/src/assets/img/beersnstuffdesign.png "Component layout")
 
 ## Support and contact
 If you have any issues viewing this site or any general questions about it please email me at
